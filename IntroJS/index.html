@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Racing Game</title>
+  <style>
+    #track {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: url(track.jpg) center/cover no-repeat;
+    }
+
+    img {
+      width: 10%;
+      height: 20%;
+      position: absolute;
+      bottom: 0;
+      float: left;
+    }
+    #car1{
+        left:0;
+        top: 43%
+    }
+    #car2{
+        left:0;
+        top: 30%
+    }
+  </style>
+</head>
+<body>
+  <div id="track">
+    <img id="car1" src="car1.png">
+    <img id="car2" src="car2.png">
+  </div>
+  <script>
+    const track = document.getElementById("track");
+    const car1 = document.getElementById("car1");
+    const car2 = document.getElementById("car2");
+    let car1Position = 0;
+    let car2Position = 0;
+
+    // Move car1 when "a" key is pressed
+    document.addEventListener("keyup", function(event) {
+      if (event.code === "KeyA") {
+        car1Position += 10;
+        car1.style.marginLeft = car1Position + "px";
+        if (car1Position >= track.offsetWidth - car1.offsetWidth) {
+          alert("Car 1 wins!");
+        }
+      }
+    });
+
+    // Move car2 when "l" key is pressed
+    document.addEventListener("keyup", function(event) {
+      if (event.code === "KeyL") {
+        car2Position += 10;
+        car2.style.marginLeft = car2Position + "px";
+        if (car2Position >= track.offsetWidth - car2.offsetWidth) {
+          alert("Car 2 wins!");
+        }
+      }
+    });
+  </script>
+</body>
+</html>
